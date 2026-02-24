@@ -17,3 +17,30 @@ var interviewEl    = document.getElementById("interview-count");
 var rejectedEl     = document.getElementById("rejected-count");
 var listingCountEl = document.getElementById("listing-count");
 var tabBtns        = document.querySelectorAll(".tab-btn");
+function stageChipClass(tag) {
+  if (tag === "interview") return "stage-interview";
+  if (tag === "rejected")  return "stage-rejected";
+  return "stage-pending";
+}
+
+function stageLabel(tag) {
+  if (tag === "interview") return "Interview";
+  if (tag === "rejected")  return "Rejected";
+  return "Not Applied";
+}
+empty state SVG (document icon)
+function emptyHTML() {
+  return `
+    <div class="empty-box">
+      <svg class="empty-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="4" width="40" height="52" rx="4" fill="#93c5fd"/>
+        <rect x="8" y="4" width="40" height="52" rx="4" fill="#bfdbfe" fill-opacity="0.6"/>
+        <path d="M16 20h24M16 28h24M16 36h16" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+        <rect x="36" y="38" width="20" height="20" rx="10" fill="#3b5bdb"/>
+        <path d="M42 48h8M46 44v8" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <p class="empty-title">No positions here</p>
+      <p class="empty-sub">Nothing to show for this filter yet.</p>
+    </div>
+  `;
+}
