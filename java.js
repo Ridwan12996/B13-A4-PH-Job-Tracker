@@ -44,3 +44,36 @@ function emptyHTML() {
     </div>
   `;
 }
+function makeCard(job) {
+  var div = document.createElement("div");
+  div.className = "job-card";
+  div.dataset.jobId = job.id;
+
+  div.innerHTML = `
+    <div class="card-body">
+      <div class="card-company">${job.firm}</div>
+      <div class="card-role">${job.post}</div>
+      <div class="card-meta">
+        <span>${job.city}</span>
+        <span>·</span>
+        <span>${job.kind}</span>
+        <span>·</span>
+        <span>${job.wage}</span>
+      </div>
+      <span class="card-stage ${stageChipClass(job.tag)}">${stageLabel(job.tag)}</span>
+      <p class="card-about">${job.detail}</p>
+      <div class="card-actions">
+        <button class="action-btn interview-btn ${job.tag === 'interview' ? 'picked' : ''}" onclick="setTag(${job.id}, 'interview')">Interview</button>
+        <button class="action-btn reject-btn   ${job.tag === 'rejected'  ? 'picked' : ''}" onclick="setTag(${job.id}, 'rejected')">Rejected</button>
+      </div>
+    </div>
+    <div class="card-side">
+      <button class="remove-btn" title="Remove" onclick="dropJob(${job.id})">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+        </svg>
+      </button>
+    </div>
+  `;
+  return div;
+}
