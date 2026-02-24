@@ -126,3 +126,4 @@ tabBtns.forEach(function(btn) {
     render();
   });
 });
+render();

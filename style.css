@@ -204,3 +204,104 @@ body {
   font-size: 0.85rem;
   color: var(--muted);
 }
+* ── Job card ── */
+.job-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  padding: 1.3rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.12s;
+}
+
+.job-card:last-child {
+  border-bottom: none;
+}
+
+.job-card:hover {
+  background: #f8fafc;
+}
+
+.card-company {
+  font-family: "Syne", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.card-role {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.55rem;
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 0.7rem;
+}
+
+.card-stage {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.6rem;
+  border-radius: 6px;
+  margin-bottom: 0.7rem;
+}
+
+.stage-pending  { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.stage-interview{ background: #f0fdf4; color: var(--green); border: 1px solid #bbf7d0; }
+.stage-rejected { background: #fff5f5; color: var(--red); border: 1px solid #fecaca; }
+
+.card-about {
+  font-size: 0.82rem;
+  color: #4b5563;
+  line-height: 1.55;
+  margin-bottom: 0.9rem;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.32rem 0.85rem;
+  border-radius: 7px;
+  border: 1.5px solid;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.14s;
+}
+
+.action-btn.interview-btn {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.action-btn.interview-btn:hover,
+.action-btn.interview-btn.picked {
+  background: var(--green);
+  color: #fff;
+}
+
+.action-btn.reject-btn {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.action-btn.reject-btn:hover,
+.action-btn.reject-btn.picked {
+  background: var(--red);
+  color: #fff;
+}
