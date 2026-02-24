@@ -77,3 +77,27 @@ function makeCard(job) {
   `;
   return div;
 }
+function render() {
+  // figure out which jobs to show
+  var shown = jobData;
+  if (currentFilter === "interview") shown = jobData.filter(function(j) { return j.tag === "interview"; });
+  if (currentFilter === "rejected")  shown = jobData.filter(function(j) { return j.tag === "rejected";  });
+
+  // update counters
+  totalEl.textContent     = jobData.length;
+  interviewEl.textContent = jobData.filter(function(j) { return j.tag === "interview"; }).length;
+  rejectedEl.textContent  = jobData.filter(function(j) { return j.tag === "rejected";  }).length;
+  listingCountEl.textContent = shown.length + " listing" + (shown.length !== 1 ? "s" : "");
+
+  // clear and rebuild list
+  areaEl.innerHTML = "";
+
+  if (shown.length === 0) {
+    areaEl.innerHTML = emptyHTML();
+    return;
+  }
+
+  shown.forEach(function(job) {
+    areaEl.appendChild(makeCard(job));
+  });
+}
