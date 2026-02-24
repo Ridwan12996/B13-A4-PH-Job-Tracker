@@ -17,6 +17,9 @@ var interviewEl    = document.getElementById("interview-count");
 var rejectedEl     = document.getElementById("rejected-count");
 var listingCountEl = document.getElementById("listing-count");
 var tabBtns        = document.querySelectorAll(".tab-btn");
+
+// ---------- helpers ----------
+
 function stageChipClass(tag) {
   if (tag === "interview") return "stage-interview";
   if (tag === "rejected")  return "stage-rejected";
@@ -28,7 +31,8 @@ function stageLabel(tag) {
   if (tag === "rejected")  return "Rejected";
   return "Not Applied";
 }
-empty state SVG (document icon)
+
+// empty state SVG (document icon)
 function emptyHTML() {
   return `
     <div class="empty-box">
@@ -44,6 +48,7 @@ function emptyHTML() {
     </div>
   `;
 }
+
 function makeCard(job) {
   var div = document.createElement("div");
   div.className = "job-card";
@@ -77,6 +82,9 @@ function makeCard(job) {
   `;
   return div;
 }
+
+// ---------- render ----------
+
 function render() {
   // figure out which jobs to show
   var shown = jobData;
@@ -101,6 +109,9 @@ function render() {
     areaEl.appendChild(makeCard(job));
   });
 }
+
+// ---------- actions ----------
+
 function setTag(id, newTag) {
   for (var i = 0; i < jobData.length; i++) {
     if (jobData[i].id === id) {
@@ -126,4 +137,6 @@ tabBtns.forEach(function(btn) {
     render();
   });
 });
+
+// ---------- start ----------
 render();
