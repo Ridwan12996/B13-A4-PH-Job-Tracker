@@ -1,21 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-      <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareerLog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
 
+  <div class="page-wrap">
 
+    <header class="top-bar">
+      <h1 class="brand-name">Job Application Tracker<span class="brand-dot"></span></h1>
+    </header>
 
-    <script src="java.js"></script>
+    <div class="stats-row">
+      <div class="stat-box">
+        <span class="stat-label">Applications</span>
+        <span class="stat-num" id="total-count">0</span>
+      </div>
+      <div class="stat-box green">
+        <span class="stat-label">Interviews</span>
+        <span class="stat-num" id="interview-count">0</span>
+      </div>
+      <div class="stat-box red">
+        <span class="stat-label">Rejected</span>
+        <span class="stat-num" id="rejected-count">0</span>
+      </div>
+    </div>
+
+    <div class="main-panel">
+
+      <div class="panel-header">
+        <h2 class="panel-title">Available Jobs</h2>
+        <span class="count-badge" id="listing-count">0 listings</span>
+      </div>
+
+      <div class="tab-bar">
+        <button class="tab-btn active" data-filter="all">All</button>
+        <button class="tab-btn" data-filter="interview">Interview</button>
+        <button class="tab-btn" data-filter="rejected">Rejected</button>
+      </div>
+
+      <div class="cards-area" id="cards-area">
+      </div>
+
+    </div>
+  </div>
+
+  <script src="java.js"></script>
 </body>
 </html>
