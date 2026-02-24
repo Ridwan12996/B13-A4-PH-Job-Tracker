@@ -101,3 +101,28 @@ function render() {
     areaEl.appendChild(makeCard(job));
   });
 }
+function setTag(id, newTag) {
+  for (var i = 0; i < jobData.length; i++) {
+    if (jobData[i].id === id) {
+      jobData[i].tag = newTag;
+      break;
+    }
+  }
+  render();
+}
+
+function dropJob(id) {
+  jobData = jobData.filter(function(j) { return j.id !== id; });
+  render();
+}
+
+// ---------- tab switching ----------
+
+tabBtns.forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    tabBtns.forEach(function(b) { b.classList.remove("active"); });
+    btn.classList.add("active");
+    currentFilter = btn.dataset.filter;
+    render();
+  });
+});
